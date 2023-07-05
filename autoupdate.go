@@ -24,10 +24,10 @@ func main() {
 	defer server.Stop()
 
 	ctx := svc.NewServiceContext(c)
-	//err := ctx.Ghr.RefreshRelease(c.GithubInfo.User, c.GithubInfo.Repo)
-	//if err != nil {
-	//	panic(err)
-	//}
+	err := ctx.Ghr.RefreshRelease(c.GithubInfo.User, c.GithubInfo.Repo)
+	if err != nil {
+		panic(err)
+	}
 	handler.RegisterHandlers(server, ctx)
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
