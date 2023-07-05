@@ -1,0 +1,19 @@
+syntax = "v1"
+
+type getUpdateResponse {
+	Version   string `json:"version"`
+	Link      string `json:"link"`
+	ChangeLog string `json:"changeLog"`
+}
+type refreshUpdateReq {
+	Secret string `json:"secret"`
+}
+type refreshUpdateResp {
+	Code int `json:"code"`
+}
+service autoUpdate {
+	@handler getUpdate
+	get /getUpdate () returns (getUpdateResponse)
+	@handler refreshUpdate
+	post /refreshUpdate (refreshUpdateReq) returns (refreshUpdateResp)
+}
