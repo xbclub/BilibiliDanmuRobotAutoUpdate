@@ -16,4 +16,6 @@ service autoUpdate {
 	get /getUpdate () returns (getUpdateResponse)
 	@handler refreshUpdate
 	post /refreshUpdate (refreshUpdateReq) returns (refreshUpdateResp)
+	@handler getUpgraderUpdate
+	get /getUpgraderUpdate () returns (getUpdateResponse)
 }

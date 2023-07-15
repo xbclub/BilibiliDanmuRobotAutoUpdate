@@ -31,5 +31,9 @@ func (l *RefreshUpdateLogic) RefreshUpdate(req *types.RefreshUpdateReq) (resp *t
 	if err != nil {
 		return &types.RefreshUpdateResp{Code: 50000}, err
 	}
+	err = l.svcCtx.Ghr.RefreshUpgraderRelease(l.svcCtx.Config.UpgraderInfo.User, l.svcCtx.Config.UpgraderInfo.Repo)
+	if err != nil {
+		return &types.RefreshUpdateResp{Code: 50001}, err
+	}
 	return &types.RefreshUpdateResp{Code: 20000}, nil
 }

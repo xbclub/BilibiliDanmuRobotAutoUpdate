@@ -22,6 +22,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Path:    "/refreshUpdate",
 				Handler: refreshUpdateHandler(serverCtx),
 			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/getUpgraderUpdate",
+				Handler: getUpgraderUpdateHandler(serverCtx),
+			},
 		},
 	)
 }

@@ -8,5 +8,9 @@ type Config struct {
 		User string `json:",default=xbclub"`
 		Repo string `json:",default=BilibiliDanmuRobot"`
 	}
+	UpgraderInfo struct {
+		User string `json:",default=xbclub"`
+		Repo string `json:",default=BilibiliDanmuRobot"`
+	}
 	Secret string
 }

@@ -6,13 +6,15 @@ import (
 )
 
 type ServiceContext struct {
-	Config config.Config
-	Ghr    *utiles.ReleaseData
+	Config   config.Config
+	Ghr      *utiles.ReleaseData
+	Upgrader *utiles.ReleaseData
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		Config: c,
-		Ghr:    utiles.NewGetRelease(),
+		Config:   c,
+		Ghr:      utiles.NewGetRelease(),
+		Upgrader: utiles.NewGetRelease(),
 	}
 }
