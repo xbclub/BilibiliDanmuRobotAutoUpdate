@@ -12,5 +12,6 @@ type Config struct {
 		User string `json:",default=xbclub"`
 		Repo string `json:",default=BilibiliDanmuRobot"`
 	}
+	Proxy  string `json:",default=https://github.moeyy.xyz/"`
 	Secret string
 }
