@@ -20,7 +20,7 @@ func NewGetRelease() *ReleaseData {
 	return new(ReleaseData)
 }
 
-func (r *ReleaseData) RefreshRelease(user, repo string) error {
+func (r *ReleaseData) RefreshRelease(user, repo, proxy string) error {
 	url := fmt.Sprintf("https://api.github.com/repos/%s/%s/releases/latest", user, repo)
 	client := &http.Client{}
 
@@ -59,7 +59,7 @@ func (r *ReleaseData) RefreshRelease(user, repo string) error {
 	r.Changelog = tmpdata.Body
 	for _, assets := range tmpdata.Assets {
 		if strings.Contains(assets.Name, "GUI-BilibiliDanmuRobot_Windows_amd64_") {
-			r.Link = "https://ghproxy.com/" + assets.BrowserDownloadUrl
+			r.Link = proxy + assets.BrowserDownloadUrl
 			break
 		}
 	}

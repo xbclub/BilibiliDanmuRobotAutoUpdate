@@ -1,6 +1,6 @@
 module github.com/xbclub/BilibiliDanmuRobotAutoUpdate.git
 
-go 1.20
+go 1.24
 
 require github.com/zeromicro/go-zero v1.6.4
 

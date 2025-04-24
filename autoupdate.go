@@ -23,7 +23,7 @@ func main() {
 	defer server.Stop()
 
 	ctx := svc.NewServiceContext(c)
-	err := ctx.Ghr.RefreshRelease(c.GithubInfo.User, c.GithubInfo.Repo)
+	err := ctx.Ghr.RefreshRelease(c.GithubInfo.User, c.GithubInfo.Repo, c.Proxy)
 	if err != nil {
 		panic(err)
 	}

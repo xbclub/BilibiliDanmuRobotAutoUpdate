@@ -27,7 +27,7 @@ func (l *RefreshUpdateLogic) RefreshUpdate(req *types.RefreshUpdateReq) (resp *t
 	if req.Secret != l.svcCtx.Config.Secret {
 		return &types.RefreshUpdateResp{Code: 30100}, nil
 	}
-	err = l.svcCtx.Ghr.RefreshRelease(l.svcCtx.Config.GithubInfo.User, l.svcCtx.Config.GithubInfo.Repo)
+	err = l.svcCtx.Ghr.RefreshRelease(l.svcCtx.Config.GithubInfo.User, l.svcCtx.Config.GithubInfo.Repo, l.svcCtx.Config.Proxy)
 	if err != nil {
 		return &types.RefreshUpdateResp{Code: 50000}, err
 	}
